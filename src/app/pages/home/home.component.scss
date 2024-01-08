@@ -1,0 +1,44 @@
+.banner {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7rem;
+
+  &__infos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__texts {
+      span {
+        font-size: 3rem;
+        font-weight: 600;
+        font-family: "Baloo 2", sans-serif;
+        line-height: 3.5rem;
+      }
+
+      p {
+        font-family: "Roboto", sans-serif;
+        margin-top: 0.5rem;
+      }
+    }
+
+    &__icons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+
+      &__box {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+
+        p {
+          font-family: "Roboto", sans-serif;
+          font-size: 0.85rem;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
