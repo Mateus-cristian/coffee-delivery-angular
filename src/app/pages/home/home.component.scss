@@ -42,3 +42,28 @@
     }
   }
 }
+
+
+.principal{
+  padding-bottom: 5rem;
+  margin-top: 4em;
+
+  & header {
+    p {
+      font-size: 1.75rem;
+      font-weight: 800;
+      font-family: "Baloo 2", sans-serif;
+    }
+  }
+
+
+    &__cards{
+      margin-top:2em;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+ 
+    }
+
+  
+}
