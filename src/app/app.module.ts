@@ -9,9 +9,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './pages/home/home.component';
 import { CardCoffeeComponent } from './components/card-coffee/card-coffee.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { DeliveryComponent } from './pages/delivery/delivery.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent, CardCoffeeComponent, CheckoutComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, CardCoffeeComponent, CheckoutComponent, DeliveryComponent],
   imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
   providers: [],
   bootstrap: [AppComponent],
