@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "server": "npx json-server db.json --port 8000",
+    "server": "npx json-server db.json --port 8080",
     "test": "ng test"
   },
   "private": true,
