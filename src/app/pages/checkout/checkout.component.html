@@ -1,0 +1,137 @@
+<div class="checkout container container__md">
+  <form class="checkout__payment">
+    <span class="checkout__payment__title">Complete seu pedido</span>
+
+    <section class="checkout__payment__form">
+      <header>
+        <div>
+          <fa-icon class="icon" [icon]="faMapMarkerAlt"></fa-icon>
+        </div>
+        <div>
+          <span>Endereço de entrega</span>
+          <p>Informe o endereço onde deseja receber seu pedido</p>
+        </div>
+      </header>
+
+      <div class="checkout__payment__form__location">
+        <div class="column1">
+          <input type="text" name="" id="" placeholder="CEP" />
+        </div>
+        <div class="column2">
+          <input type="text" name="" id="" placeholder="Rua" />
+        </div>
+        <div class="column3">
+          <input type="text" name="" id="" placeholder="Número" />
+          <input type="text" name="" id="" placeholder="Complemento" />
+        </div>
+        <div class="column4">
+          <input type="text" name="" id="" placeholder="Bairro" />
+          <input type="text" name="" id="" placeholder="Cidade" />
+          <input type="text" name="" id="" placeholder="UF" />
+        </div>
+      </div>
+    </section>
+
+    <section class="checkout__payment__currency">
+      <header>
+        <div>
+          <fa-icon class="icon" [icon]="faDollarSign"></fa-icon>
+        </div>
+        <div>
+          <span>Pagamento</span>
+          <p>
+            O pagamento é feito na entrega. Escolha a forma que deseja pagar
+          </p>
+        </div>
+      </header>
+
+      <div class="checkout__payment__currency__method">
+        <div class="checkout__payment__currency__method__button">
+          <input
+            type="radio"
+            id="credit"
+            name="method-payment"
+            value="credit"
+          />
+          <label for="credit">
+            <fa-icon class="icon" [icon]="faCreditCard"></fa-icon>
+            <span>Cartão de crédito</span>
+          </label>
+        </div>
+        <div class="checkout__payment__currency__method__button">
+          <input type="radio" id="debit" name="method-payment" value="debit" />
+          <label for="debit">
+            <fa-icon class="icon" [icon]="faLandmark"></fa-icon>
+            <span>Cartão de débito</span>
+          </label>
+        </div>
+        <div class="checkout__payment__currency__method__button">
+          <input type="radio" id="money" name="method-payment" value="money" />
+          <label for="money">
+            <fa-icon class="icon" [icon]="faMoneyBillWave"></fa-icon>
+            <span>Dinheiro</span>
+          </label>
+        </div>
+      </div>
+    </section>
+  </form>
+  <section class="checkout__cart">
+    <span class="checkout__cart__title">Cafés selecionados</span>
+
+    <div class="checkout__cart__container">
+      <div class="checkout__cart__container__items">
+        <div class="checkout__cart__container__items__item">
+          <div class="checkout__cart__container__items__item__image">
+            <img src="../../../assets/images/coffees/Coffee-1.png" alt="café" />
+          </div>
+          <div class="checkout__cart__container__items__item__total">
+            <header>
+              <span> Expresso tradicional </span>
+              <span> R$ 9,90 </span>
+            </header>
+            <div class="checkout__cart__container__items__item__total__buttons">
+              <div
+                class="checkout__cart__container__items__item__total__buttons__quantity"
+              >
+                <span
+                  class="checkout__cart__container__items__item__total__buttons__quantity__minus"
+                  >-</span
+                >
+                <span
+                  class="checkout__cart__container__items__item__total__buttons__quantity__number"
+                  >2</span
+                >
+                <span
+                  class="checkout__cart__container__items__item__total__buttons__quantity__more"
+                  >+</span
+                >
+              </div>
+
+              <button
+                type="button"
+                class="checkout__cart__container__items__item__total__buttons__remove"
+              >
+                <fa-icon class="icon" [icon]="faTrashAlt"></fa-icon>
+                <span>Remover</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkout__cart__container__total">
+        <div class="checkout__cart__container__total__items">
+          <span>Total de itens</span>
+          <span>R$ 27,70</span>
+        </div>
+        <div class="checkout__cart__container__total__items">
+          <span>Total de itens</span>
+          <span>R$ 27,70</span>
+        </div>
+        <p>Total R$ 33,20</p>
+
+        <button type="button">Confirmar pedido</button>
+      </div>
+    </div>
+  </section>
+</div>

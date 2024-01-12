@@ -1,0 +1,320 @@
+.checkout {
+  display: flex;
+  margin-top: 5em;
+  padding-bottom: 5em;
+  gap: 2em;
+
+  &__payment {
+    &__title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-family: "Baloo 2", sans-serif;
+    }
+
+    &__form {
+      margin-top: 1em;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      padding: 2.5em;
+      background-color: #f3f2f2;
+
+      header {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5em;
+
+        & .icon {
+          color: #c47f17;
+        }
+
+        span {
+          font-family: "Baloo 2", sans-serif;
+          line-height: 0.75rem;
+          font-size: 1.25rem;
+        }
+
+        p {
+          font-size: 1rem;
+          font-family: "Baloo 2", sans-serif;
+        }
+      }
+
+      &__location {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        margin-top: 2em;
+
+        & .column1 {
+          display: flex;
+          width: 100%;
+          flex: 1;
+        }
+        & .column2 {
+          display: flex;
+          width: 100%;
+          flex: 1;
+        }
+        & .column3 {
+          display: flex;
+          gap: 0.5em;
+          width: 100%;
+          flex: 1;
+
+          input[type="text"]:last-child {
+            display: flex;
+            flex: 1;
+          }
+        }
+        & .column4 {
+          display: flex;
+          gap: 0.5em;
+          width: 100%;
+
+          input[type="text"]:nth-child(1) {
+            display: flex;
+            width: 100%;
+            flex: 0.8;
+          }
+          input[type="text"]:nth-child(2) {
+            display: flex;
+            width: 100%;
+            flex: 1.8;
+          }
+          input[type="text"]:nth-child(3) {
+            display: flex;
+            width: 100%;
+            flex: 0.2;
+          }
+        }
+      }
+    }
+
+    &__currency {
+      margin-top: 1em;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      padding: 2.5em;
+      background-color: #f3f2f2;
+
+      header {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5em;
+
+        & .icon {
+          color: #8047f8;
+        }
+
+        span {
+          font-family: "Baloo 2", sans-serif;
+          line-height: 0.75rem;
+          font-size: 1.25rem;
+        }
+
+        p {
+          font-size: 1rem;
+          font-family: "Baloo 2", sans-serif;
+        }
+      }
+
+      &__method {
+        display: flex;
+        gap: 1em;
+        margin-top: 1.25em;
+
+        &__button {
+          display: flex;
+
+          input[type="radio"] {
+            opacity: 0;
+          }
+
+          input[type="radio"]:checked + label {
+            border: 1px solid #8047f8;
+          }
+
+          label {
+            cursor: pointer;
+            display: flex;
+            gap: 0.5em;
+            background-color: #e6e5e5;
+            align-items: center;
+            padding: 1em 1.125em;
+            border-radius: 6px;
+            min-width: 180px;
+            border: 1px solid transparent;
+            transition: 0.2s ease-in-out;
+
+            span {
+              text-transform: uppercase;
+              font-size: 0.75rem;
+              font-family: "Roboto", sans-serif;
+              color: #574f4d;
+            }
+          }
+
+          & .icon {
+            color: #8047f8;
+          }
+        }
+      }
+    }
+  }
+
+  &__cart {
+    width: 100%;
+    &__title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-family: "Baloo 2", sans-serif;
+    }
+
+    &__container {
+      margin-top: 1em;
+      border-radius: 6px;
+      border-bottom-left-radius: 24px;
+      border-top-right-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      padding: 2.5em;
+      background-color: #f3f2f2;
+
+      &__items {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        &__item {
+          display: flex;
+          padding-bottom: 1em;
+          margin-bottom: 1em;
+          border-bottom: 1px solid #e6e5e5;
+
+          &__image {
+            img {
+              width: 64px;
+              height: 64px;
+            }
+          }
+
+          &__total {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: space-between;
+
+            header {
+              display: flex;
+              justify-content: space-between;
+              top: 5px;
+              left: 10px;
+              position: relative;
+            }
+
+            &__buttons {
+              display: flex;
+              gap: 1em;
+              bottom: 0px;
+              left: 10px;
+              position: relative;
+
+              &__quantity {
+                display: flex;
+                background-color: #e6e5e5;
+                padding: 0.1em 1em;
+                border-radius: 6px;
+                justify-content: space-between;
+                align-items: center;
+                gap: 9px;
+
+                &__minus {
+                  position: relative;
+                  bottom: 2.5px;
+                  color: #8047f8;
+                  font-weight: 800;
+                  font-size: 1.65rem;
+                  cursor: pointer;
+                }
+
+                &__number {
+                  font-family: "Baloo 2", sans-serif;
+                }
+
+                &__more {
+                  color: #8047f8;
+                  font-weight: 800;
+                  font-size: 1.25rem;
+                  cursor: pointer;
+                }
+              }
+
+              &__remove{
+                display: flex;
+                gap: 1em;
+                background-color: #e6e5e5;
+                border: 1px solid #e6e5e5;
+                padding: 0.1em 1em;
+                border-radius: 6px;
+                align-items: center;
+                cursor: pointer;
+
+                .icon {
+                  color: #8047f8;
+                }
+
+                span {
+                  font-family: "Roboto", sans-serif;
+                  bottom:1px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &__total {
+        display: flex;
+        flex-direction: column;
+
+        &__items {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 5px;
+
+          span {
+            font-family: "Roboto", sans-serif;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+          }
+        }
+
+        button {
+          margin-top: 2em;
+          border-radius: 4px;
+          padding: 1em;
+          background-color: #dbac2c;
+          border: 1px solid #dbac2c;
+          color: #fff;
+          font-size: 1em;
+          cursor: pointer;
+          transition: 0.3s ease-in-out;
+
+          &:hover {
+            background-color: #efbf5f;
+            border: 1px solid #efbf5f;
+          }
+        }
+
+        p {
+          font-size: 1.125rem;
+          font-weight: 600;
+          font-family: "Roboto", sans-serif;
+          // margin-top: 1em;
+        }
+      }
+    }
+  }
+}

@@ -1,24 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 
 * {
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a{
-    cursor: pointer;
+a {
+  cursor: pointer;
 }
 
-.container{
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    
-    &__lg{
-        max-width: 90%;
-    }
-    &__md{
-        max-width: 1120px;
-    }
+.container {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+
+  &__lg {
+    max-width: 90%;
+  }
+  &__md {
+    max-width: 1120px;
+  }
+}
+
+input[type="text"] {
+  background-color: #ededed;
+  border: 1px solid #e6e5e5;
+  border-radius: 8px;
+  color: #8d8686;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  height: 3.5em;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  padding: 12px;
 }
