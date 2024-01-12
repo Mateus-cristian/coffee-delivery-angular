@@ -9,21 +9,25 @@
   padding: 0 1.25rem;
   align-items: center;
 
-
   &__image {
     position: relative;
-    top:-15px;
+    top: -15px;
   }
 
   &__tags {
-    color: #c47f17;
-    background-color: #f1e9c9;
-    padding: 0.1rem 0.4rem;
-    border-radius: 9999px;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    font-weight: 800;
-    font-family: "Baloo 2", sans-serif;
+    display: flex;
+    gap: .5em;
+
+    &__tag {
+      color: #c47f17;
+      background-color: #f1e9c9;
+      padding: 0.1rem 0.4rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 800;
+      font-family: "Baloo 2", sans-serif;
+    }
   }
 
   &__texts {

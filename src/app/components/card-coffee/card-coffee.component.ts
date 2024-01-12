@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { IProduct } from 'src/app/interfaces/Product';
 
 @Component({
   selector: 'app-card-coffee',
@@ -9,7 +11,19 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 export class CardCoffeeComponent implements OnInit {
   faCartShopping = faCartShopping;
 
-  constructor() {}
+  @Input() coffee: IProduct = {} as IProduct;
 
-  ngOnInit(): void {}
+  constructor(private sanitizer: DomSanitizer) {}
+
+  ngOnInit(): void {
+    const { price, ...coffee } = this.coffee;
+    const priceFormatted = Number(price).toFixed(2);
+
+    const coffeeWithPriceFormatted = { ...coffee, price: priceFormatted };
+    this.coffee = coffeeWithPriceFormatted;
+  }
+
+  getImageURL(imagePath: string) {
+    return this.sanitizer.bypassSecurityTrustUrl(imagePath);
+  }
 }

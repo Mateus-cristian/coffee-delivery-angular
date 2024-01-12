@@ -1,30 +1,30 @@
 <div class="card">
   <div class="card__image">
     <img
-      src="../../../assets/images/coffees/Coffee-1.png"
+      [src]="getImageURL(coffee.image)"
       alt="Logo com dois copos de cafe seguido pelo titúlo coffee delivery"
     />
   </div>
 
   <div class="card__tags">
-    <span>tradicional</span>
+    <span class="card__tags__tag" *ngFor="let tag of coffee.variation">{{ tag.name }}</span>
   </div>
 
   <div class="card__texts">
-    <span>Expresso tradicional</span>
-    <p>O tradicional café feito com água quente e grãos moídos</p>
+    <span>{{ coffee.name }}</span>
+    <p>{{ coffee.description }}</p>
   </div>
 
   <div class="card__footer">
     <div class="card__footer__price">
       <sub>R$</sub>
-      <span>9,90</span>
+      <span>{{ coffee.price }}</span>
     </div>
 
     <div class="card__footer__checkout">
       <div class="card__footer__checkout__quantity">
         <span class="card__footer__checkout__quantity__minus">-</span>
-        <span class="card__footer__checkout__quantity__number">2</span>
+        <span class="card__footer__checkout__quantity__number">{{  coffee.quantity  }}</span>
         <span class="card__footer__checkout__quantity__more">+</span>
       </div>
 
