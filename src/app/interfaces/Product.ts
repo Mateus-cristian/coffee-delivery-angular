@@ -16,3 +16,14 @@ export interface IProduct {
     }
   ];
 }
+
+export interface IAddress {
+  bairro: string;
+  cep: string;
+  cidade: string;
+  complemento: string;
+  estado: string;
+  methodPayment: string;
+  numero: string;
+  rua: string;
+}
