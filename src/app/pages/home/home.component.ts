@@ -27,6 +27,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    localStorage.setItem('@delivery', '');
+
     this.cart$.subscribe((cart) => {
       if (cart.products.length > 0) {
         this.coffees = cart.products;
