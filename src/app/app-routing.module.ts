@@ -3,6 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { DeliveryComponent } from './pages/delivery/delivery.component';
+import { StoreModule } from '@ngrx/store';
+import { cartReducer } from './store/cart/cart.reducer';
+
+
 
 const routes: Routes = [
   {
@@ -20,7 +24,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    StoreModule.forRoot({
+      cart: cartReducer,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
