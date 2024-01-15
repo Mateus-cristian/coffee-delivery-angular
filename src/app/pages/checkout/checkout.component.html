@@ -21,7 +21,7 @@
               id=""
               formControlName="cep"
               placeholder="CEP"
-              (blur)="onCepBlur()"
+              (input)="onCepBlur()"
             />
             <p
               class="inputWithValidator__error"
@@ -150,7 +150,7 @@
               type="radio"
               id="credit"
               name="methodPayment"
-              value="credit"
+              value="Cartão de crédito"
               formControlName="methodPayment"
             />
             <label for="credit">
@@ -163,7 +163,7 @@
               type="radio"
               id="debit"
               name="methodPayment"
-              value="debit"
+              value="Cartão de débito"
               formControlName="methodPayment"
             />
             <label for="debit">
@@ -176,7 +176,7 @@
               type="radio"
               id="money"
               name="methodPayment"
-              value="money"
+              value="Dinheiro"
               formControlName="methodPayment"
             />
             <label for="money">
@@ -251,11 +251,11 @@
       <div class="checkout__cart__container__total">
         <div class="checkout__cart__container__total__items">
           <span>Total de itens</span>
-          <span>R$ 27,70</span>
+          <span>R$ {{ totalProductsWithDelivery }}</span>
         </div>
         <div class="checkout__cart__container__total__items">
           <span>Entrega</span>
-          <span>R$ 27,70</span>
+          <span>R$ 10,00</span>
         </div>
         <p>Total R$ {{ totalProducts }}</p>
 
