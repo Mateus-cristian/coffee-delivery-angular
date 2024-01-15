@@ -80,28 +80,31 @@
 
     <div class="checkout__cart__container">
       <div class="checkout__cart__container__items">
-        <div class="checkout__cart__container__items__item">
+
+        <div class="checkout__cart__container__items__item" *ngFor="let item of cartCheckout">
           <div class="checkout__cart__container__items__item__image">
-            <img src="../../../assets/images/coffees/Coffee-1.png" alt="café" />
+            <img [src]="getImageURL(item.image)" alt="image de um café na xicara com o nome de{{  item.name }}" />
           </div>
           <div class="checkout__cart__container__items__item__total">
             <header>
-              <span> Expresso tradicional </span>
-              <span> R$ 9,90 </span>
+              <span> {{ item.name }} </span>
+              <span> R$ {{ item.price }} </span>
             </header>
             <div class="checkout__cart__container__items__item__total__buttons">
               <div
                 class="checkout__cart__container__items__item__total__buttons__quantity"
               >
                 <span
+                (click)="addCountToItemCheckout(item,'remove')"
                   class="checkout__cart__container__items__item__total__buttons__quantity__minus"
                   >-</span
                 >
                 <span
                   class="checkout__cart__container__items__item__total__buttons__quantity__number"
-                  >2</span
+                  >{{ item.quantity }}</span
                 >
                 <span
+                (click)="addCountToItemCheckout(item,'add')"
                   class="checkout__cart__container__items__item__total__buttons__quantity__more"
                   >+</span
                 >
@@ -109,6 +112,7 @@
 
               <button
                 type="button"
+                (click)="removeItemToCheckout(item)"
                 class="checkout__cart__container__items__item__total__buttons__remove"
               >
                 <fa-icon class="icon" [icon]="faTrashAlt"></fa-icon>
@@ -117,6 +121,8 @@
             </div>
           </div>
         </div>
+
+
       </div>
 
       <div class="checkout__cart__container__total">
@@ -125,10 +131,10 @@
           <span>R$ 27,70</span>
         </div>
         <div class="checkout__cart__container__total__items">
-          <span>Total de itens</span>
+          <span>Entrega</span>
           <span>R$ 27,70</span>
         </div>
-        <p>Total R$ 33,20</p>
+        <p>Total R$ {{ totalProducts }}</p>
 
         <button type="button">Confirmar pedido</button>
       </div>

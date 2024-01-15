@@ -53,7 +53,7 @@
 
   <section class="principal__cards">
     <div *ngFor="let coffee of coffees">
-      <app-card-coffee [coffee]="coffee"></app-card-coffee>
+      <app-card-coffee [coffee]="coffee" (eventUpdateCountToProduct)="updateCountToProduct($event)"></app-card-coffee>
     </div>
   </section>
 </main>
