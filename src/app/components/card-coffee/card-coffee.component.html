@@ -23,12 +23,12 @@
 
     <div class="card__footer__checkout">
       <div class="card__footer__checkout__quantity">
-        <span class="card__footer__checkout__quantity__minus">-</span>
+        <span class="card__footer__checkout__quantity__minus" (click)="removeCountToProduct(coffee)">-</span>
         <span class="card__footer__checkout__quantity__number">{{  coffee.quantity  }}</span>
-        <span class="card__footer__checkout__quantity__more">+</span>
+        <span class="card__footer__checkout__quantity__more" (click)="addCountToProduct(coffee)">+</span>
       </div>
 
-      <div class="card__footer__checkout__cart">
+      <div class="card__footer__checkout__cart" (click)="add(coffee)">
         <fa-icon
           class="card__footer__checkout__cart__icon"
           [icon]="faCartShopping"
