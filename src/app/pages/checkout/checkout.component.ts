@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import {
   faMapMarkerAlt,
   faDollarSign,
@@ -37,7 +38,9 @@ export class CheckoutComponent implements OnInit {
 
   cartStore$: Observable<CartModel>;
   cartCheckout: IProduct[] = [];
+
   totalProducts: string = '0';
+  totalProductsWithDelivery: string = '0';
 
   form: FormGroup = new FormGroup({
     cep: new FormControl('', [Validators.required]),
@@ -53,7 +56,8 @@ export class CheckoutComponent implements OnInit {
   constructor(
     private store: Store<IAppState>,
     private sanitizer: DomSanitizer,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {
     this.cartStore$ = this.store.select((state: IAppState) => state.cart);
   }
@@ -62,7 +66,11 @@ export class CheckoutComponent implements OnInit {
     this.cartStore$.subscribe((store) => {
       this.cartCheckout = store.cart;
 
-      const formattedTotal = store.total.toFixed(2);
+      const total = store.total + 10;
+      const formattedTotal = total.toFixed(2);
+      const formattedTotalWithoutDelivery = store.total.toFixed(2);
+
+      this.totalProductsWithDelivery = formattedTotalWithoutDelivery;
       this.totalProducts = formattedTotal;
 
       if (store.total > 0) {
@@ -71,8 +79,7 @@ export class CheckoutComponent implements OnInit {
     });
   }
 
-
-
+  // Função que busca o endereço pelo CEP
   getCepDetails(cep: string): Observable<any> {
     return this.http.get(`https://viacep.com.br/ws/${cep}/json/`);
   }
@@ -81,16 +88,27 @@ export class CheckoutComponent implements OnInit {
     const cepControl = this.form.get('cep');
     cepControl?.markAsTouched();
     const cep = cepControl?.value;
-    this.getCepDetails(cep).subscribe((data) => {
+
+    if (cep.length !== 8) {
       this.form.patchValue({
-        rua: data.logradouro,
-        bairro: data.bairro,
-        cidade: data.localidade,
-        estado: data.uf,
+        rua: '',
+        bairro: '',
+        cidade: '',
+        estado: '',
       });
-    });
+    } else {
+      this.getCepDetails(cep).subscribe((data) => {
+        this.form.patchValue({
+          rua: data.logradouro,
+          bairro: data.bairro,
+          cidade: data.localidade,
+          estado: data.uf,
+        });
+      });
+    }
   }
 
+  
   async removeItemToCheckout(product: IProduct) {
     this.store.dispatch(removeProductCart({ product }));
   }
@@ -103,6 +121,7 @@ export class CheckoutComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustUrl(imagePath);
   }
 
+  // Adiciona os erros aos campos
   get cepErrors() {
     const cepControl = this.form.get('cep');
     return (cepControl?.touched && cepControl?.errors) || {};
@@ -137,14 +156,18 @@ export class CheckoutComponent implements OnInit {
     return (cepControl?.touched && cepControl?.errors) || {};
   }
 
+  // --------
+
   submit() {
     this.form.markAllAsTouched();
     this.submitted = true;
     if (this.form.invalid) {
-      console.log(JSON.stringify(this.form.invalid, null, 2));
       return;
     }
 
-    console.log(JSON.stringify(this.form.value, null, 2));
+    // Se o formulário estiver completo guarda o mesmo no localStorage e vai para a página 
+    const parseObj = JSON.stringify(this.form.value);
+    localStorage.setItem('@delivery', parseObj);
+    this.router.navigate(['delivery']);
   }
 }

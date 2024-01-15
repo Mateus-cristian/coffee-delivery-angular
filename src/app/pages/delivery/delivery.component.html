@@ -9,22 +9,22 @@
       <div class="delivery__location__address__cep">
         <img src="../../../assets/images/tag.png" alt="" />
         <div class="delivery__location__address__cep__texts">   
-          <span>Entrega em <strong>Rua João Daniel Martinelli, 102</strong></span>
-          <span>Farrapos - Porto Alegre, RS</span>
+          <span>Entrega em <strong>Rua {{ AddressClient?.rua }}, {{ AddressClient?.numero }}</strong></span>
+          <span>{{ AddressClient?.bairro }} - {{ AddressClient?.cidade }}, {{ AddressClient?.estado }}</span>
         </div>
       </div>
       <div class="delivery__location__address__time">
         <img src="../../../assets/images/timer.png" alt="" />
         <div class="delivery__location__address__time__texts">
           <span>Previsão de entrega</span>
-          <strong>20 min - 30 min</strong>
+          <strong>40 min - 60 min</strong>
         </div>
       </div>
       <div class="delivery__location__address__payment">
         <img src="../../../assets/images/cash.png" alt="" />
           <div class="delivery__location__address__payment__texts">
           <span>Pagamento na entrega</span>
-          <strong>Cartão de Crédito</strong>
+          <strong>{{ AddressClient?.methodPayment }}</strong>
         </div>
       </div>
     </div>
