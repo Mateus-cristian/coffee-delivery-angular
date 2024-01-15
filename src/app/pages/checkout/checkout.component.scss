@@ -53,14 +53,24 @@
         }
         & .column2 {
           display: flex;
-          width: 100%;
-          flex: 1;
+
+          .inputWithValidator {
+            flex: 2;
+          }
+          
+          input[type="text"] {
+            width: 100%;
+          }
         }
         & .column3 {
           display: flex;
           gap: 0.5em;
           width: 100%;
           flex: 1;
+
+          .inputWithValidator:last-child {
+            flex: 2;
+          }
 
           input[type="text"]:last-child {
             display: flex;
@@ -72,21 +82,28 @@
           gap: 0.5em;
           width: 100%;
 
-          input[type="text"]:nth-child(1) {
-            display: flex;
-            width: 100%;
+          .inputWithValidator:nth-child(1) {
             flex: 0.8;
+            input[type="text"] {
+              display: flex;
+              width: 100%;
+            }
           }
-          input[type="text"]:nth-child(2) {
-            display: flex;
-            width: 100%;
+          .inputWithValidator:nth-child(2) {
             flex: 1.8;
+            input[type="text"] {
+              display: flex;
+              width: 100%;
+            }
           }
-          input[type="text"]:nth-child(3) {
-            display: flex;
-            width: 100%;
-            flex: 0.2;
+          .inputWithValidator:nth-child(3) {
+            flex: 0.3;
+            input[type="text"] {
+              display: flex;
+              width: 100%;
+            }
           }
+         
         }
       }
     }
@@ -98,6 +115,10 @@
       flex-direction: column;
       padding: 2.5em;
       background-color: #f3f2f2;
+
+      .inputWithValidator__error{
+        left:15px;
+      }
 
       header {
         display: flex;
@@ -301,6 +322,18 @@
           font-size: 1em;
           cursor: pointer;
           transition: 0.3s ease-in-out;
+
+          &:disabled {
+            background-color: #e6e5e5;
+            border: 1px solid #e6e5e5;
+            cursor:not-allowed;
+
+            &:hover {
+            background-color: #e6e5e5;
+            border: 1px solid #e6e5e5;
+          }
+
+          }
 
           &:hover {
             background-color: #efbf5f;

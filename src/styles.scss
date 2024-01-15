@@ -30,7 +30,7 @@ input[type="text"] {
   color: #8d8686;
   font-weight: 500;
   font-family: "Roboto", sans-serif;
-  height: 3.5em;
+  max-height: 3.5em;
   font-size: 0.75em;
   text-transform: uppercase;
   padding: 12px;
@@ -43,4 +43,16 @@ strong,
 h1,
 h2 {
   font-family: "Roboto", sans-serif;
+}
+
+.inputWithValidator {
+  display: flex;
+  flex-direction: column;
+  &__error {
+    font-size: 0.65rem;
+    position: relative;
+    top: 5px;
+    left: 5px;
+    color: red;
+  }
 }

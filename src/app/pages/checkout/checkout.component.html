@@ -1,7 +1,6 @@
 <div class="checkout container container__md">
-  <form class="checkout__payment">
+  <form class="checkout__payment" [formGroup]="form">
     <span class="checkout__payment__title">Complete seu pedido</span>
-
     <section class="checkout__payment__form">
       <header>
         <div>
@@ -15,19 +14,118 @@
 
       <div class="checkout__payment__form__location">
         <div class="column1">
-          <input type="text" name="" id="" placeholder="CEP" />
+          <div class="inputWithValidator">
+            <input
+              type="text"
+              name=""
+              id=""
+              formControlName="cep"
+              placeholder="CEP"
+              (blur)="onCepBlur()"
+            />
+            <p
+              class="inputWithValidator__error"
+              *ngIf="submitted && cepErrors['required']"
+            >
+              CEP é obrigatório.
+            </p>
+          </div>
         </div>
         <div class="column2">
-          <input type="text" name="" id="" placeholder="Rua" />
+          <div class="inputWithValidator">
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Rua"
+              formControlName="rua"
+            />
+            <p
+              class="inputWithValidator__error"
+              *ngIf="submitted && ruaErrors['required']"
+            >
+              Rua é obrigatório.
+            </p>
+          </div>
         </div>
         <div class="column3">
-          <input type="text" name="" id="" placeholder="Número" />
-          <input type="text" name="" id="" placeholder="Complemento" />
+          <div class="inputWithValidator">
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Número"
+              formControlName="numero"
+            />
+            <p
+              class="inputWithValidator__error"
+              *ngIf="submitted && numeroErrors['required']"
+            >
+              Número é obrigatório.
+            </p>
+          </div>
+          <div class="inputWithValidator">
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Complemento"
+              formControlName="complemento"
+            />
+            <p
+              class="inputWithValidator__error"
+              *ngIf="submitted && complementoErrors['required']"
+            >
+              Complemento é obrigatório.
+            </p>
+          </div>
         </div>
         <div class="column4">
-          <input type="text" name="" id="" placeholder="Bairro" />
-          <input type="text" name="" id="" placeholder="Cidade" />
-          <input type="text" name="" id="" placeholder="UF" />
+          <div class="inputWithValidator">
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Bairro"
+              formControlName="bairro"
+            />
+            <p
+              class="inputWithValidator__error"
+              *ngIf="submitted && bairroErrors['required']"
+            >
+              Bairro é obrigatório.
+            </p>
+          </div>
+          <div class="inputWithValidator">
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Cidade"
+              formControlName="cidade"
+            />
+            <p
+              class="inputWithValidator__error"
+              *ngIf="submitted && cidadeErrors['required']"
+            >
+              Cidade é obrigatória.
+            </p>
+          </div>
+          <div class="inputWithValidator">
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="UF"
+              formControlName="estado"
+            />
+            <p
+              class="inputWithValidator__error"
+              *ngIf="submitted && estadoErrors['required']"
+            >
+              Estado é obrigatório.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -45,33 +143,55 @@
         </div>
       </header>
 
-      <div class="checkout__payment__currency__method">
-        <div class="checkout__payment__currency__method__button">
-          <input
-            type="radio"
-            id="credit"
-            name="method-payment"
-            value="credit"
-          />
-          <label for="credit">
-            <fa-icon class="icon" [icon]="faCreditCard"></fa-icon>
-            <span>Cartão de crédito</span>
-          </label>
+      <div class="inputWithValidator">
+        <div class="checkout__payment__currency__method">
+          <div class="checkout__payment__currency__method__button">
+            <input
+              type="radio"
+              id="credit"
+              name="methodPayment"
+              value="credit"
+              formControlName="methodPayment"
+            />
+            <label for="credit">
+              <fa-icon class="icon" [icon]="faCreditCard"></fa-icon>
+              <span>Cartão de crédito</span>
+            </label>
+          </div>
+          <div class="checkout__payment__currency__method__button">
+            <input
+              type="radio"
+              id="debit"
+              name="methodPayment"
+              value="debit"
+              formControlName="methodPayment"
+            />
+            <label for="debit">
+              <fa-icon class="icon" [icon]="faLandmark"></fa-icon>
+              <span>Cartão de débito</span>
+            </label>
+          </div>
+          <div class="checkout__payment__currency__method__button">
+            <input
+              type="radio"
+              id="money"
+              name="methodPayment"
+              value="money"
+              formControlName="methodPayment"
+            />
+            <label for="money">
+              <fa-icon class="icon" [icon]="faMoneyBillWave"></fa-icon>
+              <span>Dinheiro</span>
+            </label>
+          </div>
         </div>
-        <div class="checkout__payment__currency__method__button">
-          <input type="radio" id="debit" name="method-payment" value="debit" />
-          <label for="debit">
-            <fa-icon class="icon" [icon]="faLandmark"></fa-icon>
-            <span>Cartão de débito</span>
-          </label>
-        </div>
-        <div class="checkout__payment__currency__method__button">
-          <input type="radio" id="money" name="method-payment" value="money" />
-          <label for="money">
-            <fa-icon class="icon" [icon]="faMoneyBillWave"></fa-icon>
-            <span>Dinheiro</span>
-          </label>
-        </div>
+
+        <p
+          class="inputWithValidator__error"
+          *ngIf="submitted && methodPaymentErrors['required']"
+        >
+          Método de pagamento é obrigatório.
+        </p>
       </div>
     </section>
   </form>
@@ -80,10 +200,15 @@
 
     <div class="checkout__cart__container">
       <div class="checkout__cart__container__items">
-
-        <div class="checkout__cart__container__items__item" *ngFor="let item of cartCheckout">
+        <div
+          class="checkout__cart__container__items__item"
+          *ngFor="let item of cartCheckout"
+        >
           <div class="checkout__cart__container__items__item__image">
-            <img [src]="getImageURL(item.image)" alt="image de um café na xicara com o nome de{{  item.name }}" />
+            <img
+              [src]="getImageURL(item.image)"
+              alt="image de um café na xicara com o nome de{{ item.name }}"
+            />
           </div>
           <div class="checkout__cart__container__items__item__total">
             <header>
@@ -95,7 +220,7 @@
                 class="checkout__cart__container__items__item__total__buttons__quantity"
               >
                 <span
-                (click)="addCountToItemCheckout(item,'remove')"
+                  (click)="addCountToItemCheckout(item, 'remove')"
                   class="checkout__cart__container__items__item__total__buttons__quantity__minus"
                   >-</span
                 >
@@ -104,7 +229,7 @@
                   >{{ item.quantity }}</span
                 >
                 <span
-                (click)="addCountToItemCheckout(item,'add')"
+                  (click)="addCountToItemCheckout(item, 'add')"
                   class="checkout__cart__container__items__item__total__buttons__quantity__more"
                   >+</span
                 >
@@ -121,8 +246,6 @@
             </div>
           </div>
         </div>
-
-
       </div>
 
       <div class="checkout__cart__container__total">
@@ -136,7 +259,7 @@
         </div>
         <p>Total R$ {{ totalProducts }}</p>
 
-        <button type="button">Confirmar pedido</button>
+        <button type="submit" (click)="submit()" [disabled]="disabledButton">Confirmar pedido</button>
       </div>
     </div>
   </section>
