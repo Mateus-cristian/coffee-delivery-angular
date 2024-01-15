@@ -1,15 +1,15 @@
 <header class="container container__md">
-   <a>
+   <div class="home" (click)="navigateToHome()">
         <img src="../../../assets/images/iconBrand.svg" alt="Logo com dois copos de cafe seguido pelo titúlo coffee delivery" />
-   </a>
+   </div>
    <nav>
        <div class="location">
          <fa-icon class="location__icon" [icon]="faTag"></fa-icon>
            <span>Porto alegre</span>
        </div>
-       <a class="cart">
+       <div class="cart" (click)="navigateToCartCheckout()">
           <fa-icon class="cart__icon" [icon]="faCartShopping"></fa-icon>
-          <sub>1</sub>
-       </a>
+          <sub>{{ products.length }}</sub>
+       </div>
 </nav>
 </header>
